@@ -1,0 +1,24 @@
+function verificarSenha(senha) {
+  // Critérios de segurança
+  var tamanhoMinimo = 8; // Tamanho mínimo da senha
+  var possuiLetras = /[a-zA-Z]/.test(senha); // Verifica se a senha contém letras
+  var possuiNumeros = /[0-9]/.test(senha); // Verifica se a senha contém números
+  var possuiCaracteresEspeciais = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(senha); // Verifica se a senha contém caracteres especiais
+
+  // Verifica se a senha atende a todos os critérios
+  if (
+    senha.length >= tamanhoMinimo &&
+    possuiLetras &&
+    possuiNumeros &&
+    possuiCaracteresEspeciais
+  ) {
+    return "A senha é segura!";
+  } else {
+    return "A senha não atende aos critérios de segurança.";
+  }
+}
+
+// Exemplo de uso
+var senha = prompt("Digite a senha:");
+var resultado = verificarSenha(senha);
+console.log(resultado);
